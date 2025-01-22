@@ -1,3 +1,3 @@
 <?php
-    echo "prueba de funcionamiento :)"
+    echo "prueba de funddcionamiento :)"
 ?>
