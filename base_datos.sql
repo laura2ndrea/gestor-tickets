@@ -1,3 +1,6 @@
+--CREATE DATABASE sistema_tickets;
+--\c sistema_tickets
+
 -- Creación de las tablas en la base de datos 
 CREATE TABLE usuario_rol (
     id_usuario_rol SERIAL PRIMARY KEY,
