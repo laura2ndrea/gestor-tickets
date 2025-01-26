@@ -20,6 +20,14 @@ class User {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getUserById($id) {
+        $query = "SELECT * FROM usuario WHERE id_usuario = :id";
+        $stmt = $this->db->prepare($query); // Prepara la consulta
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT); // Vincula el parámetro
+        $stmt->execute(); // Ejecuta la consulta
+        return $stmt->fetch(); // Devuelve el usuario como un array asociativo
+    }
+
     // Insertar un nuevo usuario
     public function createUser($nick, $correo, $contrasenia, $id_estado, $id_rol) {
         $sql = "INSERT INTO usuario (nick, correo, contrasenia, id_estado, id_rol)
