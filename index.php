@@ -1,26 +1,27 @@
 <?php
-// Se incluye el archivo de configuración 
-require_once 'config/db.ph';
+// Archivo principal del sistema de tickets
 
-// Para obtener la ruta de la solicitud 
-$controller = $_GET['controller'] ?? 'home'; 
-$action = $_GET['action'] ?? 'index'; 
+// Incluir el archivo de configuración
+require_once 'config/db.php';
 
-// Construcción de la ruta al archivo del controlador 
-$controllerFile = 'controllers/{$controller}_controller.php'; 
+// Obtener la ruta de la solicitud
+$controller = $_GET['controller'] ?? 'home'; // Por defecto, el controlador "home"
+$action = $_GET['action'] ?? 'index';       // Por defecto, la acción "index"
 
-if(file_exists($controllerFile)) {
-    require_once $controllerFile; 
+// Construir la ruta al archivo del controlador
+$controllerFile = "controllers/{$controller}_controller.php";
 
-    // Se llama a la función correspondiente dentro del controlador 
-    $function = "{$action}Action"; 
+if (file_exists($controllerFile)) {
+    require_once $controllerFile;
+
+    // Llamar a la función correspondiente dentro del controlador
+    $function = "{$action}Action";
     if (function_exists($function)) {
-        $function(); 
+        $function();
     } else {
-        echo "Acción no encontrada: {$action}"; 
+        echo "Acción no encontrada: {$action}";
     }
 } else {
-    echo "Controlador no encontrado: {$controller}"; 
+    echo "Controlador no encontrado: {$controller}";
 }
 ?>
-

@@ -1,8 +1,8 @@
 <?php
-
-// Controlador para la página principal (home)
+// Controlador de la página principal (Home)
 
 function indexAction() {
-    require 'views/home.php'; 
+    // Mostrar la vista de bienvenida
+    require 'views/home.php';
 }
 ?>
